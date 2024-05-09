@@ -11,29 +11,43 @@ class Calculator {
     constructor(previousInputText, currentInputText) {
         this.previousInputText = previousInputText;
         this.currentInputText = currentInputText;
+        this.clear();
     }
-    // append numbers to display
-    appendToDisplay() {
-
+    // Append numbers for displaying
+    appendNumber(number) {
+        if (number === '.' && this.currentInput.includes('.')) return;
+        this.currentInput = this.currentInput.toString() + number.toString();
     }
-    // select the operator 
+    // Select the operator 
     selectOperator() {
 
     }
-    // calculate 
+    // Calculate 
     calculate() {
 
     }
-    // clear display
+    // Clear display
     clear() {
-
+        this.previousInput = '';
+        this.currentInput = '';
+        this.operator = undefined;
     }
-    // delete numbers in display
+    // Delete numbers in display
     delete() {
 
     }
-    //update display 
+    // Update display 
     updateDisplay() {
-
+        this.currentInputText.textContent = this.currentInput
     }
 }
+
+const calculator = new Calculator(previousInputText, currentInputText);
+
+// Number button event listener
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.textContent);
+        calculator.updateDisplay();
+    })
+})
