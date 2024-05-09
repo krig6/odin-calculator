@@ -24,7 +24,7 @@ class Calculator {
     // Select the operator 
     selectOperator(operator) {
         // if number is not present, clicking an operator will do nothing
-        if (this.currentInput === '') return
+        if (this.currentInput === '') return;
         // If previous number has a value already, we can proceed to calculate without clicking equal sign
         if (this.previousInput !== '') {
             this.calculate();
@@ -35,7 +35,31 @@ class Calculator {
     }
     // Calculate 
     calculate() {
+        let result;
+        const previousNumber = parseFloat(this.previousInput);
+        const currentNumber = parseFloat(this.currentInput);
+        // If equal sign is clicked and previous or current number is unavailable do nothing
+        if (isNaN(currentNumber) || isNaN(previousNumber)) return;
 
+        switch (this.operator) {
+            case '+':
+                result = previousNumber + currentNumber;
+                break;
+            case '-':
+                result = previousNumber - currentNumber;
+                break;
+            case 'x':
+                result = previousNumber * currentNumber;
+                break;
+            case '÷':
+                result = previousNumber / currentNumber;
+                break;
+            default:
+                return;
+        }
+        this.currentInput = result;
+        this.operator = undefined;
+        this.previousInput = ''
     }
     // Clear display
     clear() {
@@ -82,5 +106,10 @@ clearButton.addEventListener('click', () => {
 
 deleteButton.addEventListener('click', () => {
     calculator.delete();
+    calculator.updateDisplay();
+})
+
+equalButton.addEventListener('click', () => {
+    calculator.calculate();
     calculator.updateDisplay();
 })
