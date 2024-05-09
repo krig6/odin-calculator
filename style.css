@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f2eac5;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 150px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+button {
+  cursor: pointer;
+  background-color: #e5a632;
+  color: #981d26;
+  font-size: 3.5rem;
+  opacity: 80%;
+  outline: none;
+  padding: 5px;
+}
+
+button:hover {
+  opacity: 100%;
+}
+
+button:active {
+  background-color: #981d26;
+  color: #e5a632;
+}
+
+.operator-color {
+  background-color: #981d26;
+  color: #e5a632;
+}
+.operator-active:active {
+  background-color: #e5a632;
+  color: #981d26;
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.display {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  grid-column: 1/-1;
+  min-height: 15vh;
+  background-color: #e03c30;
+  word-wrap: break-word;
+  word-break: break-all;
+  border: 2px solid #6f5643;
+  border-bottom: none;
+  opacity: 80%;
+  padding: 10px;
+}
+
+.previous-input {
+  color: black;
+  opacity: 75%;
+  font-size: 1.5rem;
+}
+
+.current-input {
+  color: #4c2215;
+  opacity: 80%;
+  font-size: 2.5rem;
+}
+
+.image-backspace {
+  background-image: url("./images/delete.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.image-backspace:active {
+  background-image: url("./images/delete-active.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
