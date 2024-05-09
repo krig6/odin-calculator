@@ -23,7 +23,10 @@ class Calculator {
     }
     // Select the operator 
     selectOperator(operator) {
-        // if number is not present, clicking an operator will do nothing
+        // Avoid displaying decimal point and operator only , i.e. '.+' or '10.+'
+        const decimalDigitString = this.currentInput.toString().split('.')[1];
+        if (this.currentInput === '' || decimalDigitString === '') return;
+        // If number is not present, clicking an operator will do nothing
         if (this.currentInput === '') return;
         // If previous number has a value already, we can proceed to calculate without clicking equal sign
         if (this.previousInput !== '') {
