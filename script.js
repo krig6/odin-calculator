@@ -45,7 +45,7 @@ class Calculator {
     }
     // Delete numbers in display
     delete() {
-
+        this.currentInput = this.currentInput.toString().slice(0, -1);
     }
     // Update display 
     updateDisplay() {
@@ -73,4 +73,14 @@ operatorButton.forEach(button => {
         calculator.selectOperator(button.textContent);
         calculator.updateDisplay();
     })
+})
+
+clearButton.addEventListener('click', () => {
+    calculator.clear();
+    calculator.updateDisplay();
+})
+
+deleteButton.addEventListener('click', () => {
+    calculator.delete();
+    calculator.updateDisplay();
 })
