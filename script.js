@@ -18,7 +18,6 @@ class Calculator {
     appendNumber(number) {
         // Avoid decimal point to be entered twice 
         if (number === '.' && this.currentInput.includes('.')) return;
-
         // Instead of 1+1 = 2, it will become 1+1 = 11
         this.currentInput = this.currentInput.toString() + number.toString();
     }
@@ -44,7 +43,6 @@ class Calculator {
         const currentNumber = parseFloat(this.currentInput);
         // If equal sign is clicked and previous or current number is unavailable do nothing
         if (isNaN(currentNumber) || isNaN(previousNumber)) return;
-
         switch (this.operator) {
             case '+':
                 result = previousNumber + currentNumber;
@@ -79,13 +77,10 @@ class Calculator {
     getDisplayNumber(number) {
         // Convert the number to a string
         const stringNumber = number.toString();
-
         // Split the string into two parts, before and after the decimal point
         const integerDigit = parseFloat(stringNumber.split('.')[0]);
         const decimalDigit = stringNumber.split('.')[1];
-
         let integerDisplay; // Variable to hold formatted integer part of the number
-
         // Check if the extracted integer part is NaN
         if (isNaN(integerDigit)) {
             integerDisplay = ''
@@ -113,9 +108,7 @@ class Calculator {
     }
 }
 
-
 const calculator = new Calculator(previousInputText, currentInputText);
-
 // Number button event listener
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -123,7 +116,6 @@ numberButtons.forEach(button => {
         calculator.updateDisplay();
     })
 })
-
 // Operator button event listener
 operatorButton.forEach(button => {
     button.addEventListener('click', () => {
@@ -131,19 +123,16 @@ operatorButton.forEach(button => {
         calculator.updateDisplay();
     })
 })
-
 // Clear button event listener
 clearButton.addEventListener('click', () => {
     calculator.clear();
     calculator.updateDisplay();
 })
-
 // Delete button event listener
 deleteButton.addEventListener('click', () => {
     calculator.delete();
     calculator.updateDisplay();
 })
-
 // Equal button event listener
 equalButton.addEventListener('click', () => {
     calculator.calculate();
