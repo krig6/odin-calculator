@@ -58,38 +58,46 @@ button:active {
   justify-content: space-around;
   flex-direction: column;
   grid-column: 1/-1;
-  min-height: 15vh;
+  min-height: 20vh;
   background-color: #e03c30;
   word-wrap: break-word;
   word-break: break-all;
-  border: 2px solid #6f5643;
+  border: 4px solid #6f5643;
   border-bottom: none;
   opacity: 80%;
   padding: 10px;
 }
 
 .previous-input {
-  color: black;
-  opacity: 75%;
-  font-size: 1.5rem;
+  color: #4c2215;
+  opacity: 80%;
+  font-size: 2rem;
 }
 
 .current-input {
-  color: #4c2215;
-  opacity: 80%;
-  font-size: 2.5rem;
+  color: black;
+  opacity: 90%;
+  font-size: 3.5rem;
 }
 
-.image-backspace {
+.delete-image {
   background-image: url("./images/delete.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.image-backspace:active {
+.delete-image:active {
   background-image: url("./images/delete-active.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.clear-delete-color {
+  background-color: #ccc39b;
+}
+
+.clear-delete-color:active {
+  color: #ccc39b;
 }
