@@ -1,6 +1,6 @@
 // DOM element selectors
 const numberButtons = document.querySelectorAll('[data-number]');
-const operatorButton = document.querySelectorAll('[data-operator]');
+const operatorButtons = document.querySelectorAll('[data-operator]');
 const clearButton = document.querySelector('[data-clear]');
 const deleteButton = document.querySelector('[data-delete]');
 const equalButton = document.querySelector('[data-equal]');
@@ -117,7 +117,7 @@ numberButtons.forEach(button => {
     })
 })
 // Operator button event listener
-operatorButton.forEach(button => {
+operatorButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.selectOperator(button.textContent);
         calculator.updateDisplay();
